@@ -1,0 +1,7 @@
+{
+  "host": "hostname/hostip",
+  "user": "yourusername",
+  "password": "password",
+  "database": "dbname",
+  "jwtSecret": "yourJWTsecret"
+}
