@@ -14,7 +14,7 @@ const createUser = async (uname, pass) => {
   const result = await connection.query(
     `
   INSERT INTO users (username,password)
-  values (?,?,)
+  values (?,?)
     `,
     [uname, pass]
   );
@@ -29,4 +29,11 @@ const getUser = async (uname) => {
   return result;
 };
 
-module.exports = {  createUser, getUser };
+const createQuestion = async (title, descr, difficulty) => {
+  const result = await connection.query(
+    `INSERT INTO questions (title,descr,difficulty) values (?,?,?)`,
+    [title, descr, difficulty]
+  );
+  return result;
+};
+module.exports = { createUser, getUser, createQuestion };
