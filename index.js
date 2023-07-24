@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000 || process.env.PORT;
 const { createUser, getUser } = require("./db");
 const config = require("config");
+const cors = require("cors");
 
 //token generation and encryption libraries
 const jwt = require("jsonwebtoken");
@@ -11,9 +12,9 @@ const bcrypt = require("bcryptjs");
 //middleware for Parsing requset body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(cors())
 // @route  /signup
-// @type   POST
+// @method POST
 // @access public
 // @desc   Register a new user
 
@@ -50,7 +51,7 @@ app.post("/signup", async (req, res) => {
 });
 
 // @route  /login
-// @type   POST
+// @method POST
 // @access public
 // @desc   Login existing user
 
